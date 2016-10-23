@@ -1,26 +1,39 @@
 'use strict';
-
-var btnNum1 = document.getElementById("boton1");
-btnNum1.addEventListener("click", mostrarNum, false);
+var memoria=0;
+var valor=0;
+var btnNums = document.querySelectorAll(".numeros");
+for(var i=0; i<btnNums.length; i++){
+	btnNums[i].addEventListener("click", mostrarNum, false);
+}
 
 function mostrarNum(e){
-	var num1 = parseInt(e.target.value);
-	console.log(num1);
-	document.getElementById("display").innerHTML += num1;
-	return num1;
+	var num = e.target.value;
+
+	document.getElementById("display").innerHTML = num;
+	console.log(num);
+	valor = parseInt(num);
+
+	/*document.getElementById("display").innerHTML += num;
+	var numCompleto = document.getElementById("display").innerHTML;
+	console.log(numCompleto);
+	valor = parseInt(numCompleto);*/
 }
 
-var sig = document.getElementById("elMas");	
-sig.addEventListener("click", mostrarSigno, false);
+var btnSignos = document.querySelectorAll(".signos");
+for(var i=0; i<btnSignos.length; i++){
+	btnSignos[i].addEventListener("click", operarSigno, false);
+}
 
-function mostrarSigno(e){
+function operarSigno(e){
 	var operador = e.target.value;
 	console.log(operador);
-	document.getElementById("display").innerHTML += operador;
-	return operador;
-}
+	
+	if(operador == "+"){
+		memoria = memoria + valor;
+		document.getElementById("display").innerHTML = memoria;
+	}
 
-function operar(mostrarNum, mostrarSigno){
-	console.log(mostrarNum);
-	console.log(mostrarSigno);
+	if(operador == "="){
+		document.getElementById("display").innerHTML = memoria + valor;
+	}
 }
