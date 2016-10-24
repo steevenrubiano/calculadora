@@ -4,16 +4,15 @@ var valor=0;
 
 //Add eventos a los numeros
 var btnNums = document.querySelectorAll(".numeros");
-for(var i=0; i<btnNums.length; i++){
-	btnNums[i].addEventListener("click", mostrarNum, false);
-}
+	for(var i=0; i<btnNums.length; i++){
+		btnNums[i].addEventListener("click", mostrarNum, false);
+	}
 
 //Add eventos a los signos
 var btnSignos = document.querySelectorAll(".signos");
-for(var i=0; i<btnSignos.length; i++){
-	btnSignos[i].addEventListener("click", operarSigno, false);
-}
-
+	for(var i=0; i<btnSignos.length; i++){
+		btnSignos[i].addEventListener("click", operarSigno, false);
+	}
 
 //Funciones
 function mostrarNum(e){
