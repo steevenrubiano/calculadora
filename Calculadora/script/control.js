@@ -1,6 +1,6 @@
 'use strict';
-//var calculadora = new Calculadora();
 var memoria=0;
+var valor=0;
 
 //Add eventos a los numeros
 var btnNums = document.querySelectorAll(".numeros");
@@ -11,7 +11,7 @@ for(var i=0; i<btnNums.length; i++){
 //Add eventos a los signos
 var btnSignos = document.querySelectorAll(".signos");
 for(var i=0; i<btnSignos.length; i++){
-	btnSignos[i].addEventListener("click", mostrarSigno, false);
+	btnSignos[i].addEventListener("click", operarSigno, false);
 }
 
 
@@ -21,20 +21,19 @@ function mostrarNum(e){
 
 	document.getElementById("display").innerHTML = num;
 	console.log(num);
+	valor = parseInt(num);
 }
 
-function mostrarSigno(e){
+function operarSigno(e){
 	var operador = e.target.value;
-
-	document.getElementById("display").innerHTML = operador;
 	console.log(operador);
-}
-
-	/*if(operador == "+"){
+	
+	if(operador == "+"){
 		memoria = memoria + valor;
 		document.getElementById("display").innerHTML = memoria;
 	}
 
 	if(operador == "="){
 		document.getElementById("display").innerHTML = memoria + valor;
-	}*/
+	}
+}
