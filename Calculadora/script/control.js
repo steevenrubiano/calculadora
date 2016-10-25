@@ -15,8 +15,11 @@ var btnSignos = document.querySelectorAll(".signos");
 
 function mostrarNum(e){
 	var num = e.target.value;
-
-	document.getElementById("display").innerHTML = num;
+	var original = document.getElementById("display").innerHTML;
+	if(!original){
+		original = "";
+	}
+	document.getElementById("display").innerHTML = original.trim() + "" + num;
 	console.log(num);
 	valor = parseInt(num);
 }
