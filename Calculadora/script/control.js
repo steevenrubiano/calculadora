@@ -20,17 +20,17 @@ function mostrarNum(e){
 		original = "";
 	}
 	document.getElementById("display").innerHTML = original.trim() + "" + num;
-	console.log(num);
-	valor = parseInt(num);
+	var numCompleto = document.getElementById("display").innerHTML;
+	valor = parseInt(numCompleto);
 }
 
 function operarSigno(e){
 	var operador = e.target.value;
-	console.log(operador);
-	
+		
 	if(operador == "+"){
 		memoria = memoria + valor;
 		document.getElementById("display").innerHTML = memoria;
+		document.getElementById("display").innerHTML = "+";
 	}
 
 	if(operador == "="){
@@ -48,9 +48,12 @@ function limpiarMemoria(){
 	valor = 0;
 }
 
-/*var btnBorrar = document.querySelectorAll(".borrar")[0];
+var btnBorrar = document.querySelectorAll(".borrar")[0];
 	btnBorrar.addEventListener("click", borrarUltimo, false);
 
 function borrarUltimo(){
-	alert("entro");	
-}*/
+	var loQueTengo = document.getElementById("display").innerHTML;
+	console.log(loQueTengo);
+	var borrado = loQueTengo.substring(loQueTengo.length-1, loQueTengo.length);	
+	console.log(borrado);
+}
