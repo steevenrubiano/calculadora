@@ -8,6 +8,7 @@
     border:solid 1px grey;
     border-radius:10px 10px;
     background:navy;
+    box-shadow: 1px 1px 5px grey;
 }
 #display{
     border:solid 1px grey;
@@ -16,7 +17,7 @@
     text-align:right;
     margin:10px;
     border-radius:10px 10px;
-    background:lime;
+    background:linear-gradient(to top left, lightgrey, lime);;
     padding-right:5px;
     padding-top:5px;
 }
@@ -37,4 +38,8 @@
 .b{
     width:104px;
     height:40px;
+}
+button:hover{
+    background: linear-gradient(to top left, white, lime);
+    cursor: pointer;
 }

@@ -2,15 +2,10 @@
 var memoria=0;
 var valor=0;
 
-//Add eventos a los numeros y a los signos y funciones 
+//Add eventos a los numeros y mostrar
 var btnNums = document.querySelectorAll(".numeros");
 	for(var i=0; i<btnNums.length; i++){
 		btnNums[i].addEventListener("click", mostrarNum, false);
-	}
-
-var btnSignos = document.querySelectorAll(".signos");
-	for(var i=0; i<btnSignos.length; i++){
-		btnSignos[i].addEventListener("click", operarSigno, false);
 	}
 
 function mostrarNum(e){
@@ -24,17 +19,51 @@ function mostrarNum(e){
 	valor = parseInt(numCompleto);
 }
 
-function operarSigno(e){
-	var operador = e.target.value;
-		
-	if(operador == "+"){
-		memoria = memoria + valor;
-		document.getElementById("display").innerHTML = memoria;
-		document.getElementById("display").innerHTML = "+";
+//Add eventos operadores y operar
+var btnSignos = document.querySelectorAll(".signos");
+	for(var i=0; i<btnSignos.length; i++){
+		btnSignos[i].addEventListener("click", operarSigno, false);
 	}
 
+function operarSigno(e){
+	var operador = e.target.value;
+
+	/*if(operador == "+"){
+		memoria = valor + memoria;
+		document.getElementById("display").innerHTML = memoria;
+		document.getElementById("display").innerHTML = "";
+	}*/
+
+	/*if(operador == "-"){	
+		memoria = valor - memoria;
+		document.getElementById("display").innerHTML = memoria;
+		document.getElementById("display").innerHTML = "";
+		valor * 1;
+	}*/
+
+	/*if(operador == "x"){
+		if(memoria==0){
+			memoria=1;
+		}
+		memoria = valor * memoria;
+		document.getElementById("display").innerHTML = memoria;
+		document.getElementById("display").innerHTML = "";
+	}*/
+
+	/*if(operador == "/"){
+		if(memoria==0){
+			memoria=1;
+		}
+		memoria = valor / memoria;
+		document.getElementById("display").innerHTML = memoria;
+		document.getElementById("display").innerHTML = "";
+	}*/
+
 	if(operador == "="){
-		document.getElementById("display").innerHTML = memoria + valor;
+		//document.getElementById("display").innerHTML = memoria + valor;
+		//document.getElementById("display").innerHTML = memoria - valor;
+		//document.getElementById("display").innerHTML = memoria * valor;
+		//document.getElementById("display").innerHTML = memoria / valor;
 	}
 }
 
@@ -48,12 +77,12 @@ function limpiarMemoria(){
 	valor = 0;
 }
 
+//Add evento para retoceso y funcion que lo realiza
 var btnBorrar = document.querySelectorAll(".borrar")[0];
 	btnBorrar.addEventListener("click", borrarUltimo, false);
 
 function borrarUltimo(){
 	var loQueTengo = document.getElementById("display").innerHTML;
-	console.log(loQueTengo);
-	var borrado = loQueTengo.substring(loQueTengo.length-1, loQueTengo.length);	
-	console.log(borrado);
+	var borrado = loQueTengo.substring(0, loQueTengo.length -1);
+	document.getElementById("display").innerHTML = borrado;
 }
