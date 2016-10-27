@@ -1,6 +1,6 @@
 'use strict';
-var memoria=0;// el uno
-var valor=0;// el uno - sobreescribe cada vez que pulses un numero
+var memoria=0;
+var valor=0;
 var operacion;
 
 //Add eventos a los numeros y mostrar
@@ -29,15 +29,16 @@ var btnSignos = document.querySelectorAll(".signos");
 function operarSigno(e){
 	var operador = e.target.value;
 
-	if(operador == "+"){
+	/*if(operador == "+"){
 		memoria = valor + memoria;
 		operacion = "+";
-		//document.getElementById("display").innerHTML = memoria;
+		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-	}
+	}*/
 
 	/*if(operador == "-"){	
 		memoria = valor - memoria;
+		operacion = "-";
 		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
 	}*/
@@ -47,27 +48,34 @@ function operarSigno(e){
 			memoria=1;
 		}
 		memoria = valor * memoria;
+		operacion = "x";
 		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
 	}*/
 
-	/*if(operador == "/"){
+	if(operador == "/"){
 		if(memoria==0){
 			memoria=1;
 		}
 		memoria = valor / memoria;
+		operacion = "/";
 		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-	}*/
+	}
 
 	if(operador == "="){
 		if(operacion == "+"){
-			
+			document.getElementById("display").innerHTML = memoria + valor;	
 		}
-		//document.getElementById("display").innerHTML = memoria + valor;
-		//document.getElementById("display").innerHTML = memoria - valor;
-		//document.getElementById("display").innerHTML = memoria * valor;
-		//document.getElementById("display").innerHTML = memoria / valor;
+		if(operacion == "-"){
+			document.getElementById("display").innerHTML = memoria - valor;
+		}
+		if(operacion == "x"){
+			document.getElementById("display").innerHTML = memoria * valor;
+		}
+		if(operacion == "/"){
+			document.getElementById("display").innerHTML = memoria / valor;
+		}
 	}
 }
 
@@ -90,3 +98,5 @@ function borrarUltimo(){
 	var borrado = loQueTengo.substring(0, loQueTengo.length -1);
 	document.getElementById("display").innerHTML = borrado;
 }
+
+//TODO Poner memoria igual al inner
