@@ -38,7 +38,6 @@ function operarSigno(e){
 		memoria = valor - memoria;
 		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-		valor * 1;
 	}*/
 
 	/*if(operador == "x"){
