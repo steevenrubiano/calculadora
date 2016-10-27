@@ -29,52 +29,67 @@ var btnSignos = document.querySelectorAll(".signos");
 function operarSigno(e){
 	var operador = e.target.value;
 
-	/*if(operador == "+"){
+	if(operador == "+"){
 		memoria = valor + memoria;
 		operacion = "+";
-		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-	}*/
+	}
 
-	/*if(operador == "-"){	
+	if(operador == "-"){
+		if(memoria>valor){
+			memoria = memoria * (-1);
+		}
 		memoria = valor - memoria;
 		operacion = "-";
-		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-	}*/
+	}
 
-	/*if(operador == "x"){
+	if(operador == "x"){
 		if(memoria==0){
 			memoria=1;
 		}
-		memoria = valor * memoria;
+		if(valor == 0){
+			memoria = memoria * 1;
+		}else{
+			memoria = valor * memoria;
+		}
 		operacion = "x";
-		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-	}*/
+	}
 
 	if(operador == "/"){
 		if(memoria==0){
 			memoria=1;
 		}
-		memoria = valor / memoria;
+		if(valor == 0){
+			memoria = memoria * 1;
+		}else{
+			memoria = valor / memoria;
+		}
 		operacion = "/";
-		document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
 	}
 
 	if(operador == "="){
 		if(operacion == "+"){
-			document.getElementById("display").innerHTML = memoria + valor;	
+			document.getElementById("display").innerHTML = memoria + valor;
+			memoria = parseInt(document.getElementById("display").innerHTML);
+			valor = 0;
 		}
 		if(operacion == "-"){
 			document.getElementById("display").innerHTML = memoria - valor;
+			memoria = parseInt(document.getElementById("display").innerHTML);
+			valor = 0;
 		}
 		if(operacion == "x"){
 			document.getElementById("display").innerHTML = memoria * valor;
+			memoria = parseInt(document.getElementById("display").innerHTML);
+			valor = 0;
 		}
 		if(operacion == "/"){
 			document.getElementById("display").innerHTML = memoria / valor;
+			memoria = parseInt(document.getElementById("display").innerHTML);
+			valor = 0;
 		}
 	}
 }
@@ -98,5 +113,3 @@ function borrarUltimo(){
 	var borrado = loQueTengo.substring(0, loQueTengo.length -1);
 	document.getElementById("display").innerHTML = borrado;
 }
-
-//TODO Poner memoria igual al inner
