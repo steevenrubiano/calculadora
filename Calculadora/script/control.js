@@ -1,6 +1,7 @@
 'use strict';
-var memoria=0;
-var valor=0;
+var memoria=0;// el uno
+var valor=0;// el uno - sobreescribe cada vez que pulses un numero
+var operacion;
 
 //Add eventos a los numeros y mostrar
 var btnNums = document.querySelectorAll(".numeros");
@@ -28,11 +29,12 @@ var btnSignos = document.querySelectorAll(".signos");
 function operarSigno(e){
 	var operador = e.target.value;
 
-	/*if(operador == "+"){
+	if(operador == "+"){
 		memoria = valor + memoria;
-		document.getElementById("display").innerHTML = memoria;
+		operacion = "+";
+		//document.getElementById("display").innerHTML = memoria;
 		document.getElementById("display").innerHTML = "";
-	}*/
+	}
 
 	/*if(operador == "-"){	
 		memoria = valor - memoria;
@@ -59,6 +61,9 @@ function operarSigno(e){
 	}*/
 
 	if(operador == "="){
+		if(operacion == "+"){
+			
+		}
 		//document.getElementById("display").innerHTML = memoria + valor;
 		//document.getElementById("display").innerHTML = memoria - valor;
 		//document.getElementById("display").innerHTML = memoria * valor;
