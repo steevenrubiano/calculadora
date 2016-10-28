@@ -17,7 +17,7 @@ function mostrarNum(e){
 	}
 	document.getElementById("display").innerHTML = original.trim() + "" + num;
 	var numCompleto = document.getElementById("display").innerHTML;
-	valor = parseInt(numCompleto);
+	valor = parseFloat(numCompleto);
 }
 
 //Add eventos operadores y operar
@@ -73,22 +73,22 @@ function operarSigno(e){
 	if(operador == "="){
 		if(operacion == "+"){
 			document.getElementById("display").innerHTML = memoria + valor;
-			memoria = parseInt(document.getElementById("display").innerHTML);
+			memoria = parseFloat(document.getElementById("display").innerHTML);
 			valor = 0;
 		}
 		if(operacion == "-"){
 			document.getElementById("display").innerHTML = memoria - valor;
-			memoria = parseInt(document.getElementById("display").innerHTML);
+			memoria = parseFloat(document.getElementById("display").innerHTML);
 			valor = 0;
 		}
 		if(operacion == "x"){
 			document.getElementById("display").innerHTML = memoria * valor;
-			memoria = parseInt(document.getElementById("display").innerHTML);
+			memoria = parseFloat(document.getElementById("display").innerHTML);
 			valor = 0;
 		}
 		if(operacion == "/"){
 			document.getElementById("display").innerHTML = memoria / valor;
-			memoria = parseInt(document.getElementById("display").innerHTML);
+			memoria = parseFloat(document.getElementById("display").innerHTML);
 			valor = 0;
 		}
 	}
@@ -112,4 +112,12 @@ function borrarUltimo(){
 	var loQueTengo = document.getElementById("display").innerHTML;
 	var borrado = loQueTengo.substring(0, loQueTengo.length -1);
 	document.getElementById("display").innerHTML = borrado;
+}
+
+var btnPunto = document.querySelectorAll(".punto")[0];
+	btnPunto.addEventListener("click", ponerPunto, false);
+
+function ponerPunto(e){
+	var ponPunto = e.target.value;
+	document.getElementById("display").innerHTML += ponPunto; 
 }
