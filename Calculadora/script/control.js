@@ -4,35 +4,27 @@ var valor=0;
 var operacion;
 
 //Add eventos a los numeros y mostrar
-var btnNums = document.querySelectorAll(".numeros");
-	for(var i=0; i<btnNums.length; i++){
-		btnNums[i].addEventListener("click", mostrarNum, false);
-	}
-
+$(".numeros").click(mostrarNum);
 function mostrarNum(e){
 	var num = e.target.value;
-	var original = document.getElementById("display").innerHTML;
+	var original = $("#display").html();
 	if(!original){
 		original = "";
 	}
-	document.getElementById("display").innerHTML = original.trim() + "" + num;
-	var numCompleto = document.getElementById("display").innerHTML;
+	$("#display").html(original.trim() + "" + num);
+	var numCompleto = $("#display").html();
 	valor = parseFloat(numCompleto);
 }
 
 //Add eventos operadores y operar
-var btnSignos = document.querySelectorAll(".signos");
-	for(var i=0; i<btnSignos.length; i++){
-		btnSignos[i].addEventListener("click", operarSigno, false);
-	}
-
+$(".signos").click(operarSigno);
 function operarSigno(e){
 	var operador = e.target.value;
 
 	if(operador == "+"){
 		memoria = valor + memoria;
 		operacion = "+";
-		document.getElementById("display").innerHTML = "";
+		$("#display").html("");
 	}
 
 	if(operador == "-"){
@@ -41,7 +33,7 @@ function operarSigno(e){
 		}
 		memoria = valor - memoria;
 		operacion = "-";
-		document.getElementById("display").innerHTML = "";
+		$("#display").html("");
 	}
 
 	if(operador == "x"){
@@ -54,7 +46,7 @@ function operarSigno(e){
 			memoria = valor * memoria;
 		}
 		operacion = "x";
-		document.getElementById("display").innerHTML = "";
+		$("#display").html("");
 	}
 
 	if(operador == "/"){
@@ -67,57 +59,54 @@ function operarSigno(e){
 			memoria = valor / memoria;
 		}
 		operacion = "/";
-		document.getElementById("display").innerHTML = "";
+		$("#display").html("");
 	}
 
 	if(operador == "="){
 		if(operacion == "+"){
-			document.getElementById("display").innerHTML = memoria + valor;
-			memoria = parseFloat(document.getElementById("display").innerHTML);
+			$("#display").html(memoria + valor);
+			memoria = parseFloat($("#display").html());
 			valor = 0;
 		}
 		if(operacion == "-"){
-			document.getElementById("display").innerHTML = memoria - valor;
-			memoria = parseFloat(document.getElementById("display").innerHTML);
+			$("#display").html(memoria - valor);
+			memoria = parseFloat($("#display").html());
 			valor = 0;
 		}
 		if(operacion == "x"){
-			document.getElementById("display").innerHTML = memoria * valor;
-			memoria = parseFloat(document.getElementById("display").innerHTML);
+			$("#display").html(memoria * valor);
+			memoria = parseFloat($("#display").html());
 			valor = 0;
 		}
 		if(operacion == "/"){
-			document.getElementById("display").innerHTML = memoria / valor;
-			memoria = parseFloat(document.getElementById("display").innerHTML);
+			$("#display").html(memoria / valor);
+			memoria = parseFloat($("#display").html());
 			valor = 0;
 		}
 	}
 }
 
 //Add evento para limpiar el display y funcion que lo realiza
-var btnLimpiar = document.querySelectorAll(".limpiar")[0];
-	btnLimpiar.addEventListener("click", limpiarMemoria, false);
-
+$(".limpiar").click(limpiarMemoria);
 function limpiarMemoria(){
-	document.getElementById("display").innerHTML = "";
+	$("#display").html("");
 	memoria = 0;
 	valor = 0;
 }
 
 //Add evento para retoceso y funcion que lo realiza
-var btnBorrar = document.querySelectorAll(".borrar")[0];
-	btnBorrar.addEventListener("click", borrarUltimo, false);
-
+$(".borrar").click(borrarUltimo);
 function borrarUltimo(){
-	var loQueTengo = document.getElementById("display").innerHTML;
+	var loQueTengo = $("#display").html();
 	var borrado = loQueTengo.substring(0, loQueTengo.length -1);
-	document.getElementById("display").innerHTML = borrado;
+	$("#display").html(borrado);
 }
 
-var btnPunto = document.querySelectorAll(".punto")[0];
-	btnPunto.addEventListener("click", ponerPunto, false);
-
+//Add evento para poner punto y funcion que lo realiza
+$(".punto").click(ponerPunto);
 function ponerPunto(e){
 	var ponPunto = e.target.value;
-	document.getElementById("display").innerHTML += ponPunto; 
+	//document.getElementById("display").innerHTML += ponPunto;
+	var origen = $("#display").html();
+	$("#display").html(origen.trim() + "" + ponPunto);
 }
